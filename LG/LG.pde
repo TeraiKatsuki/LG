@@ -16,8 +16,7 @@ void setup()
 {
    cell = new int[size];
    ncell = new int[size];
-   for(int i=0; i<size;i++)
-   {
+   for(int i=0; i<size;i++){
      cell[i] = death; 
      ncell[i] = death;
    }
@@ -105,12 +104,8 @@ void keyPressed() {
 void draw()
 {
    background(255);
-   if(!issetmode){
-      updatecell();
-      drawcell();
-   }else{
-     drawcell();
-   }
+   if(!issetmode) updatecell();
+   drawcell();
   
 }
 
@@ -174,23 +169,19 @@ void updatecell()
 //draw cell.
 void drawcell()
 {
-   int rw =0;   //rect width.
+   int rw =0;         //rect width.
    int rh=-cellsize;  //rect height.
    
-   for(int i=0; i<cheight; i++)
-   {
+   for(int i=0; i<cheight; i++){
       rh+=cellsize;
       rw=0;
-      for(int j=0; j<cwidth;j++)
-      {
+      for(int j=0; j<cwidth;j++){
         int c = cell[i * cwidth + j];
         if(c == life) fill(0);
         else if(c==death) fill(255);
-        else println("Error");
         rect(rw,rh,rw +20,rh+20);
         rw+=cellsize;
       }
-      
    }
    
 }
